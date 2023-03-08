@@ -1,15 +1,11 @@
-import React from 'react';
-import Map from './components/Map';
+import { Map } from './components/Map'
+import { config } from './config'
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
-const App = () => {
+export default function App() {
   return (
     <div>
       <h1>MRT Map</h1>
-      <Map apiUrl={apiUrl} />
+      <Map apiUrl={config.VITE_API_URL} />
     </div>
-  );
-};
-
-export default App;
+  )
+}
