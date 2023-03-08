@@ -46,7 +46,7 @@ export const Map = ({ apiUrl = '' }) => {
     [startCircleId, endCircleId]
   )
 
-  const circleRefs = useRef<(SVGCircleElement | any)[]>([])
+  const circleRefs = useRef<(SVGCircleElement)[]>([])
 
   useEffect(() => {
     const circleElements = Array.from(document.querySelectorAll('.map-svg circle'))
@@ -62,12 +62,12 @@ export const Map = ({ apiUrl = '' }) => {
 
     circleElements.forEach((circle, index) => {
       circleRefs.current[index].current = circle
-      circle.addEventListener('click', handleCircleClick as any)
+      circle.addEventListener('click', handleCircleClick)
     })
 
     return () => {
       circleElements.forEach((circle) => {
-        circle.removeEventListener('click', handleCircleClick as any)
+        circle.removeEventListener('click', handleCircleClick)
       })
     }
   }, [handleCircleClick])
