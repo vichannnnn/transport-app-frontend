@@ -1,4 +1,4 @@
-import { createRef, useCallback, useEffect, useRef, useState } from 'react'
+import { createRef, useCallback, useEffect, useRef, useState, MutableRefObject } from 'react'
 import { Circle, fetchShortestPath } from '../api/api'
 import { ReactComponent as MapSvg } from '../map.svg'
 import './Map.css'
@@ -9,20 +9,19 @@ export const Map = ({ apiUrl = '' }) => {
   const [shortestPath, setShortestPath] = useState<string[]>([])
   const [circles, setCircles] = useState<Circle[]>([])
   const handleCircleClick = useCallback(
-    (event: React.MouseEvent<SVGCircleElement>) => {
-      const target = event.currentTarget
-      const circleId = target.getAttribute('id') as string
+    (event: CustomEvent<React.MouseEvent<SVGCircleElement>>) => {
+      const target = event.currentTarget as SVGCircleElement
+      const circleId = target?.getAttribute('id') as string
 
       if (startCircleId === null) {
         setStartCircleId(circleId)
       } else if (endCircleId === null && circleId !== startCircleId) {
         setEndCircleId(circleId)
       } else {
-        // Clear previous selection
         setStartCircleId(null)
         setEndCircleId(null)
         setShortestPath([])
-        const circleElements = circleRefs.current
+        const circleElements = circleRefs.current as MutableRefObject<SVGCircleElement>[]
         circleElements.forEach((circleRef) => {
           if (circleRef.current) {
             circleRef.current.classList.remove('clicked', 'highlighted')
@@ -46,7 +45,7 @@ export const Map = ({ apiUrl = '' }) => {
     [startCircleId, endCircleId]
   )
 
-  const circleRefs = useRef<(SVGCircleElement)[]>([])
+  const circleRefs = useRef<MutableRefObject<SVGCircleElement>[]>()
 
   useEffect(() => {
     const circleElements = Array.from(document.querySelectorAll('.map-svg circle'))
