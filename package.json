@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "vite",
+    "start": "vite --host 165.22.102.214",
     "build": "vite build",
     "test": "react-scripts test",
     "lint": "eslint ."
