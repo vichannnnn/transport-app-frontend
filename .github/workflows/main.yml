@@ -13,4 +13,4 @@ jobs:
           host: ${{ secrets.DEV_HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.DEV_SSH_PRIVATE_KEY }}
-          script: cd ${{ secrets.DEV_PROJECT_PATH }} && git checkout dev && git pull && tmux kill-session -t frontend && tmux new-session -s frontend && npm start
+          script: cd ${{ secrets.DEV_PROJECT_PATH }} && git checkout dev && git pull origin dev && tmux kill-session -t frontend && tmux new-session -s frontend && npm start
