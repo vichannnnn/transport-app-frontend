@@ -23,3 +23,33 @@
   .highlighted {
     fill: #ff0000;
   }
+
+  /* For screens smaller than 768px */
+@media screen and (max-width: 768px) {
+  .map-container { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 1350px;
+    overflow-x: auto;
+  }
+  
+  .map-svg {
+    max-width: 100%;
+    max-height: auto; 
+  }
+  
+  circle {
+    width: 30px;
+    stroke-width: 2;
+  }
+  
+  .clicked {
+    fill: #00ff00;
+  }
+  
+  .highlighted {
+    fill: #ff0000;
+  }
+}
