@@ -15,8 +15,10 @@ export const Map = ({ apiUrl = '' }) => {
 
       if (startCircleId === null) {
         setStartCircleId(circleId)
+        target.classList.add('start')
       } else if (endCircleId === null && circleId !== startCircleId) {
         setEndCircleId(circleId)
+        target.classList.add('end')
       } else {
         setStartCircleId(null)
         setEndCircleId(null)
@@ -24,7 +26,7 @@ export const Map = ({ apiUrl = '' }) => {
         const circleElements = circleRefs.current as MutableRefObject<SVGCircleElement>[]
         circleElements.forEach((circleRef) => {
           if (circleRef.current) {
-            circleRef.current.classList.remove('clicked', 'highlighted')
+            circleRef.current.classList.remove('clicked', 'highlighted', 'start', 'end')
           }
         })
         target.classList.add('clicked')
@@ -33,10 +35,10 @@ export const Map = ({ apiUrl = '' }) => {
       // Toggle clicked and highlighted classes
       if (circleId === startCircleId) {
         setStartCircleId(null)
-        target.classList.remove('clicked', 'highlighted')
+        target.classList.remove('clicked', 'highlighted', 'start')
       } else if (circleId === endCircleId) {
         setEndCircleId(null)
-        target.classList.remove('clicked', 'highlighted')
+        target.classList.remove('clicked', 'highlighted', 'end')
       } else {
         target.classList.toggle('clicked')
         target.classList.toggle('highlighted')

@@ -17,10 +17,15 @@
   }
   
   .clicked {
-    fill: #00ff00;
+    fill: #ff0000;
   }
   
   .highlighted {
+    fill: #00ff00;
+  }
+
+  .start,
+  .end {
     fill: #ff0000;
   }
 
