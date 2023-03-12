@@ -2,6 +2,9 @@ version: '3.8'
 
 services:
   frontend:
+    networks:
+      - internal-network
+      - default
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,4 +14,11 @@ services:
       VITE_API_URL: ${VITE_API_URL}
       VITE_API_KEY: ${VITE_API_KEY}
     volumes:
-      -  .:/app
+      -  ./src:/app/src
+    restart:
+      unless-stopped
+
+networks:
+  internal-network:
+    name: internal-network
+    driver: bridge
