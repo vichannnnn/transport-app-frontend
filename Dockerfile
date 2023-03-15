@@ -1,8 +1,8 @@
-FROM node:16-alpine
+FROM node:19-alpine
 
 WORKDIR /app
 
 COPY . .
-RUN npm ci
+RUN yarn --frozen-lockfile
 
-CMD ["npm", "start"]
+CMD ["yarn", "turbo", "start"]
