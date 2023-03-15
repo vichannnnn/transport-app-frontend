@@ -1,5 +1,5 @@
-import { Map } from './components/Map'
-import { config } from './config'
+import { Map } from '@/components/Map'
+import { config } from '@/config'
 
 export default function App() {
   return (

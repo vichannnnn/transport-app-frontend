@@ -1,7 +1,7 @@
-import { createRef, useCallback, useEffect, useRef, useState, MutableRefObject } from 'react'
-import { Circle, fetchShortestPath } from '../api/api'
-import { ReactComponent as MapSvg } from '../map.svg'
-import './Map.css'
+import { Circle, fetchShortestPath } from '@/api/api'
+import '@/components/Map.css'
+import { ReactComponent as MapSvg } from '@/map.svg'
+import { MutableRefObject, createRef, useCallback, useEffect, useRef, useState } from 'react'
 
 export const Map = ({ apiUrl = '' }) => {
   const [startCircleId, setStartCircleId] = useState<string | null>(null)
