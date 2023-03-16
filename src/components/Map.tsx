@@ -1,7 +1,7 @@
+import { Circle, fetchShortestPath } from '@/api/api'
+import '@/components/Map.css'
+import { ReactComponent as MapSvg } from '@/map.svg'
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Circle, fetchShortestPath } from '../api/api';
-import { ReactComponent as MapSvg } from '../map.svg';
-import './Map.css';
 
 interface MapProps {
   apiUrl: string;

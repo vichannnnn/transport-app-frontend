@@ -1,8 +1,8 @@
-import { Map } from './components/Map';
-import { config } from './config';
+import { Map } from '@/components/Map'
+import { config } from '@/config'
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import './App.css';
+import '@/App.css';
 
 export default function App() {
   const [showModal, setShowModal] = useState(false);
