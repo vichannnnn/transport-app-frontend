@@ -23,7 +23,7 @@ circle {
   .clicked {
     fill:  #ff0000;
     stroke: #000;
-    stroke-width: 3;
+    stroke-width: 4;
   }
   
   .highlighted {
