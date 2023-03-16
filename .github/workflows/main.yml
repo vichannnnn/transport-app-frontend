@@ -6,11 +6,18 @@ jobs:
     if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
       - name: Deploy to development
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DEV_HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.DEV_SSH_PRIVATE_KEY }}
-          script: cd ${{ secrets.DEV_PROJECT_PATH }} && git checkout dev && git restore . && git pull origin dev && docker compose up -d --build
+          script: |
+            cd ${{ secrets.DEV_PROJECT_PATH }}
+            git checkout dev
+            git restore .
+            git pull origin dev
+            docker compose up -d --build
