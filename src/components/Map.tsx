@@ -1,7 +1,9 @@
-import { Circle, fetchShortestPath } from '@/api/api'
-import '@/components/Map.css'
-import { ReactComponent as MapSvg } from '@/map.svg'
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Circle, fetchShortestPath } from '../api/api';
+import { ReactComponent as MapSvg } from '../map.svg';
+import './Map.css';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
+
 
 interface MapProps {
   apiUrl: string;
@@ -99,7 +101,15 @@ export const Map: React.FC<MapProps> = ({ apiUrl }) => {
 
   return (
     <div className="map-container">
-      <MapSvg className="map-svg" preserveAspectRatio="xMidYMid meet" />
+      <div className="svg-grid">
+        <TransformWrapper>
+          <TransformComponent>
+            <div className="svg-flex">
+              <MapSvg className="map-svg" preserveAspectRatio="xMidYMid meet" />
+            </div>
+          </TransformComponent>
+        </TransformWrapper>
+      </div>
     </div>
   );
 };

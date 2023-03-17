@@ -1,43 +1,18 @@
-import { Map } from '@/components/Map'
-import { config } from '@/config'
-import React, { useState } from 'react';
-import Modal from 'react-modal';
-import '@/App.css';
+import { Box, Button, Container, Flex, Heading, useDisclosure } from '@chakra-ui/react';
+import { Header } from './components/Header';
+import { MapModal } from './components/MapModal';
+import { Main } from './components/Main';
+import './App.css';
+
 
 export default function App() {
-  const [showModal, setShowModal] = useState(false);
-
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
+  const disclosure = useDisclosure();
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>Welcome to My SPA</h1>
-      </header>
-      <main className="app-main">
-        <button className="open-modal-btn" onClick={handleOpenModal}>
-          Render Component in Pop-up
-        </button>
-        <Modal
-          isOpen={showModal}
-          onRequestClose={handleCloseModal}
-          className="modal"
-          overlayClassName="modal-overlay"
-        >
-          <button className="close-modal-btn" onClick={handleCloseModal}>
-            Close
-          </button>
-          <div className="modal-content">
-            <Map apiUrl={config.VITE_API_URL} />
-          </div>
-        </Modal>
-      </main>
-    </div>
+    <Box className="app">
+      <Header />
+      <Main disclosure={disclosure} />
+      <MapModal isOpen={disclosure.isOpen} onRequestClose={disclosure.onClose} />
+    </Box>
   );
 }

@@ -7,6 +7,19 @@
   overflow: hidden;
 }
 
+.svg-grid {
+  display: grid;
+  place-items: center;
+}
+
+.svg-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 .map-svg {
   max-width: 90%;
   max-height: 90%;
@@ -36,6 +49,7 @@ circle {
     stroke: #000;
     stroke-width: 3;
   }
+
 
   /* For screens smaller than 768px */
 @media screen and (max-width: 768px) {
