@@ -6,15 +6,18 @@
     "start": "vite --host 0.0.0.0",
     "build": "vite build",
     "test": "react-scripts test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.5.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "envalid": "^7.3.1",
     "framer-motion": "^10.5.0",
     "html-react-parser": "^3.0.12",
+    "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",

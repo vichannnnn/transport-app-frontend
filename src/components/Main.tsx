@@ -1,18 +1,18 @@
-import { Button, Container } from '@chakra-ui/react';
-import { UseDisclosureReturn } from '@chakra-ui/hooks';
+import { Button, Flex } from '@chakra-ui/react'
+import { UseDisclosureReturn } from '@chakra-ui/hooks'
 
 interface MainProps {
-  disclosure: UseDisclosureReturn;
+  disclosure: UseDisclosureReturn
 }
 
 export const Main: React.FC<MainProps> = ({ disclosure }) => {
-  const { onOpen } = disclosure;
+  const { onOpen } = disclosure
 
   return (
-    <Container as="main" textAlign="center">
+    <Flex as="main" minHeight="calc(100vh - 4rem)" justifyContent="center" alignItems="center">
       <Button colorScheme="teal" size="lg" onClick={onOpen}>
         Find Shortest Path
       </Button>
-    </Container>
-  );
-};
+    </Flex>
+  )
+}
